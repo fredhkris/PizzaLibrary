@@ -8,7 +8,7 @@ namespace PizzaLibrary.Models
 {
     public class CompanyInfo
     {
-        private static CompanyInfo instance;
+        private static CompanyInfo _instance;
 
         public double Vat
         {
@@ -33,11 +33,11 @@ namespace PizzaLibrary.Models
 
         public static CompanyInfo GetInstance()
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = new CompanyInfo();
+                _instance = new CompanyInfo();
             }
-            return instance;
+            return _instance;
         }
     }
 }

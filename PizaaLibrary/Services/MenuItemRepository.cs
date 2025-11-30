@@ -113,7 +113,23 @@ namespace PizzaLibrary.Services
 
         public void PrintMenuCard()
         {
+            // Iterate over all values of the enum and print the items for each MenuType
+            foreach (MenuType mtype in Enum.GetValues(typeof(MenuType)))
+            {
+                Console.WriteLine($"--- {mtype} ---");
+                List<MenuItem> items = GetAllMenuItemsOfMenuType(mtype);
+                if (items.Count == 0)
+                {
+                    Console.WriteLine("  (no items)");
+                    continue;
+                }
 
+                foreach (var item in items)
+                {
+                    // Use the MenuItem properties you have available
+                    Console.WriteLine($"  {item.No}: {item.Name} - {item.Price:C} - {item.Description}");
+                }
+            }
         }
 
         public List<MenuItem> GetAllMenuItemsWithinRange(int min, int max)
@@ -124,6 +140,11 @@ namespace PizzaLibrary.Services
                 menuItems.Add(_menuItemList[i]);
             }
             return menuItems;
+        }
+
+        public void UpdateMenuItem(MenuItem menuItem)
+        {
+
         }
     }
 }

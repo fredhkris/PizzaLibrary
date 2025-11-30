@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PizzaLibrary.Exceptions
 {
-    public class TooHighDiscountException : Exception
+    public class InvalidDiscountException : Exception
     {
     }
 }

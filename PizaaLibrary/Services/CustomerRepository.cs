@@ -78,15 +78,18 @@ namespace PizzaLibrary.Services
             return clubMembers;
         }
 
-        //public List<Customer> FindAllCustomersFromRoskilde()
-        //{
-        //    List<Customer> customers = [];
-        //    foreach (KeyValuePair<string, Customer> kvp in _customers)
-        //    {
-        //        Customer customer = kvp.Value;
-        //    }
-        //    return customers;
-        //}
+        public List<Customer> FindAllCustomersFromRoskilde()
+        {
+            List<Customer> customers = [];
+            foreach (Customer c in _customers.Values)
+            {
+                if(c.Address.Contains("Roskilde"))
+                {
+                    customers.Add(c);
+                }
+            }
+            return customers;
+        }
 
         public void UpdateCustomer(Customer customer)
         {

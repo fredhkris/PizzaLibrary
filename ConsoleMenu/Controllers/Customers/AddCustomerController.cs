@@ -20,6 +20,13 @@ namespace ConsoleMenu.Controllers.Customers
             _customerRepository = customerRepository;
         }
 
+        public AddCustomerController(string name, string mobile, string address, bool clubMember, int discount, ICustomerRepository customerRepository)
+        {
+            Customer = new VIPCustomer(name, mobile, address, discount);
+            Customer.ClubMember = clubMember;
+            _customerRepository = customerRepository;
+        }
+
         public void AddCustomer()
         {
             _customerRepository.AddCustomer(Customer);

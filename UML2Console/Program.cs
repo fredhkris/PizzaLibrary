@@ -44,3 +44,5 @@ foreach(MenuItem m in menuItemsInRange)
 {
     Console.WriteLine(m);
 }
+
+menuRepo.PrintMenuCard();

@@ -14,15 +14,34 @@ namespace PizzaLibrary.Models
 {
     public class VIPCustomer : Customer
     {
-        public int Discount { get; set; }
+        private int _discount;
 
-        public VIPCustomer(string name, string mobile, string address, int discountPercentage) : base(name, mobile, address)
+        public int Discount
         {
-            if (discountPercentage > 25 || discountPercentage < 1)
+            get
             {
-                throw new TooHighDiscountException();
+                return _discount;
             }
-            Discount = discountPercentage;
+            set
+            {
+                if (value < 1 || value > 25)
+                {
+                    throw new InvalidDiscountException();
+                }
+                else
+                {
+                    _discount = value;
+                }
+            }
+        }
+
+        public VIPCustomer(string name, string mobile, string address, int discount) : base(name, mobile, address)
+        {
+            if (discount > 25 || discount < 1)
+            {
+                throw new InvalidDiscountException();
+            }
+            Discount = discount;
         }
 
         public override string ToString()
