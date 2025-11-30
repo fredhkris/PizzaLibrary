@@ -53,7 +53,7 @@ namespace ConsoleMenu.Menu
                         if (vipCustomer)
                         {
                             Console.WriteLine("Indtast discount");
-                            while (!int.TryParse(Console.ReadLine(), out discount) && discount < 1 || discount > 25)
+                            while (!int.TryParse(Console.ReadLine(), out discount) || discount < 1 || discount > 25)
                             {
                                 Console.WriteLine("Indtast en gyldig værdi (mellem 1-25)");
                             }
