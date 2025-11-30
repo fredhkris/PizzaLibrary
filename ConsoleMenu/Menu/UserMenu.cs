@@ -53,11 +53,10 @@ namespace ConsoleMenu.Menu
                         if (vipCustomer)
                         {
                             Console.WriteLine("Indtast discount");
-                            while (!int.TryParse(Console.ReadLine(), out discount))
+                            while (!int.TryParse(Console.ReadLine(), out discount) && discount < 1 || discount > 25)
                             {
-                                Console.WriteLine("Indtast et tal");
+                                Console.WriteLine("Indtast en gyldig værdi (mellem 1-25)");
                             }
-                            discount = Math.Clamp(discount, 1, 25);
                         }
                         Console.WriteLine("Indlæs navn:");
                         string name = Console.ReadLine();
